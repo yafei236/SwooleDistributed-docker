@@ -10,5 +10,6 @@ docker ps -a
 
 docker run ^
 -p 8082:8081 ^
+-v E:\develop\docker\SwooleDistributed-docker\swooledistributed:/app/sd ^
 -t -i php-swoole-distributed:1.0 /bin/bash 
 
