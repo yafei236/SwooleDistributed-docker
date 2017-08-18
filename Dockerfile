@@ -24,7 +24,7 @@ RUN cd /app/src/ \
  
 #安装swoole扩展
 RUN cd /app/src/ \
-    && curl -fsSL 'https://github.com/swoole/swoole-src/archive/v1.9.16.tar.gz' -o swoole-src.tar.gz \
+    && curl -fsSL 'https://github.com/swoole/swoole-src/archive/v1.9.18.tar.gz' -o swoole-src.tar.gz \
     && mkdir -p swoole-src \
     && tar -xf swoole-src.tar.gz -C swoole-src --strip-components=1 \
     &&  cd swoole-src && phpize \
@@ -48,6 +48,10 @@ RUN pecl install inotify \
 
 
 #安装 consul
+#COPY ./develop/setup/consul_0.9.0_linux_amd64.zip /app/setup/consul.zip
+#RUN cd /app/setup  \
+#    && unzip consul.zip \
+#    && mv consul /usr/local/bin/
 
 # RUN cd /app/src/  \
 #     && curl -fsSL 'https://releases.hashicorp.com/consul/0.9.0/consul_0.9.0_linux_amd64.zip' -o consul.zip \

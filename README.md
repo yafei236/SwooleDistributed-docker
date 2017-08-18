@@ -1,21 +1,25 @@
 # SwooleDistributed-docker
 
-基于 ubuntu:16.04
+##基于 ubuntu:16.04
 
-本项目适用于 刚入手sd的新手 用于开发环境
+>本项目适用于 刚入手sd的新手 用于开发环境
 
 使用方法 
-linux 运行 ./run.sh
-windows 运行 run.bat
+- linux or mac  运行 ./run.sh
+- windows 运行 run.bat
 
 或者运行
 
 docker build -t php-swoole-distributed:1.0 .
 
+<p>
+<code>
 docker run ^
 -p 8081:8081 ^
 -v E:\develop\docker\SwooleDistributed-docker\swooledistributed:/app/sd ^
 -t -i php-swoole-distributed:1.0 /bin/bash 
+</code>
+</p>
 
 
 进入之后执行
