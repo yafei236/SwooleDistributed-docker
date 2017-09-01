@@ -1,6 +1,6 @@
 # SwooleDistributed-docker
 
-##基于 ubuntu:16.04
+##基于 php:7-cli
 
 >本项目适用于 刚入手sd的新手 用于开发环境
 
@@ -12,15 +12,21 @@
 
 docker build -t php-swoole-distributed:1.0 .
 
-<p>
-<code>
-docker run ^
--p 8081:8081 ^
--v E:\develop\docker\SwooleDistributed-docker\swooledistributed:/app/sd ^
--t -i php-swoole-distributed:1.0 /bin/bash 
-</code>
-</p>
+``` shell
 
+#!/bin/bash
+
+docker build -t php-swoole-distributed:1.2 .
+docker rm -f php-swoole-distributed-run-01
+docker ps -a
+
+docker run \
+--name php-swoole-distributed-run-01 \
+-p 8081:8081 \
+-v /home/develop/docker/SwooleDistributed-docker/swooledistributed:/app/sd \
+-t -i php-swoole-distributed:1.2 bash 
+
+```
 
 进入之后执行
 composer install
