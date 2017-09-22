@@ -27,9 +27,10 @@ docker run \
 --name php-swoole-distributed-run-01 \
 -p 8085:8081 \
 -v /home/develop/docker/SwooleDistributed-docker/swooledistributed:/app/sd \
--t -i php-swoole-distributed:1.2 bash 
+php-swoole-distributed:1.2
 
 ```
+> -v 是映射宿主机的目录到虚拟机的目录
 
 进入之后执行
 composer install
