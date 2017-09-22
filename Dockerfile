@@ -42,11 +42,12 @@ COPY ./swooledistributed /app/sd
 # #安装 consul
 # RUN  cd /app/setup && unzip consul_0.9.0_linux_amd64.zip &&  mv consul /usr/local/bin/
 
-#执行启动命令
-# php start_swoole_server.php start
-#CMD [ "php", "/app/sd/bin/server.php start" ]
+RUN cd /app/sd && composer install && echo y |php vendor/tmtbe/swooledistributed/src/Install.php
 
 #打包后删除无用文件
 RUN rm -rf /var/lib/apt/lists/*;
 
 WORKDIR /app
+
+#执行启动命令
+ENTRYPOINT ["php", "/app/sd/bin/start_swoole_server.php" , "start"]

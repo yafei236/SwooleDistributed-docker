@@ -8,12 +8,15 @@
 - linux or mac  运行 ./run.sh
 - windows 运行 run.bat
 
-或者运行
+### 注意事项
+- 默认sd 代码目录为 /app/sd
+- 如果编译失败请多运行几次命令,因为pecl比较慢,容易掉线
 
-docker build -t php-swoole-distributed:1.0 .
+
+
+或者运行如下脚本
 
 ``` shell
-
 #!/bin/bash
 
 docker build -t php-swoole-distributed:1.2 .
@@ -22,7 +25,7 @@ docker ps -a
 
 docker run \
 --name php-swoole-distributed-run-01 \
--p 8081:8081 \
+-p 8085:8081 \
 -v /home/develop/docker/SwooleDistributed-docker/swooledistributed:/app/sd \
 -t -i php-swoole-distributed:1.2 bash 
 
@@ -42,14 +45,13 @@ redis ip 和 密码
 
 $config['redis']['local']['ip'] = 'localhost';
 //$config['redis']['local']['password'] = '123456';
-
-cd bin
+~~ cd bin
 service redis-server restart 
-php start_swoole_server.php start
+php start_swoole_server.php start~~
 
 测试成功方法
-http://localhost:8081/TestController/test
-http://127.0.0.1:8081/
-http://localhost:8081/
+http://localhost:8085/TestController/test
+http://127.0.0.1:8085/
+http://localhost:8085/
 
 
