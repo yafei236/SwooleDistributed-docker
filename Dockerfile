@@ -36,6 +36,13 @@ RUN curl -fsSL 'https://github.com/swoole/swoole-src/archive/v1.9.19.tar.gz' -o 
     && docker-php-ext-install /tmp/swoole \
     && rm -r /tmp/swoole
 
+#安装kafka
+RUN echo y | apt-get install python
+RUN git clone https://github.com/edenhill/librdkafka.git \
+     && cd librdkafka \
+     && ./configure && make && make install
+RUN pecl install rdkafka   && docker-php-ext-enable rdkafka
+
 
 COPY ./swooledistributed /app/sd
 
